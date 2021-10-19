@@ -7,8 +7,6 @@ ruby '2.4.10'
 gem 'devise'
 # Use to better view on console
 gem 'awesome_print'
-# Use bootstrap to Front
-gem 'bootstrap', '~> 4.6.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.6'
