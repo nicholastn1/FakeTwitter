@@ -3,11 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
-  <link rel="icon" href="images/favicon.png">
 
 </head>
 
@@ -30,8 +27,13 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <h1 class="h1-large">Seja Bem-Vindo ao FakeTwitter</h1>
-            <a class="btn-solid-lg" href="#">Entrar</a>
+            <% unless user_signed_in? %>
+              <h1 class="h1-large">Seja Bem-Vindo ao FakeTwitter</h1>
+              <%= link_to 'Registre-se agora!', new_user_registration_path, class:"btn-solid-lg" %>
+            <% else %>
+              <h1 class="h1-large">Acesse o seu perfil do FakeTwitter</h1>
+              <%= link_to 'Perfil', '', class:"btn-solid-lg", method: :delete %>
+            <% end %>
           </div>
         </div>
       </div>
@@ -42,18 +44,18 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <h2 class="h2-heading">Complete social media services</h2>
-          <p class="p-heading">Increasing impression interested expression he my at. Respect invited request charmed me
-            warrant to. Expect no more pretty as do though so genius afraid cousin</p>
+          <h2 class="h2-heading">Rede Social</h2>
+          <p class="p-heading">Essa rede social foi criada com o intuito de ganhar ainda mais conhecimento e para
+          fins de aprendizado!</p>
         </div>
       </div>
       <div class="row">
         <div class="col-lg-12">
           <div class="card">
             <div class="card-body">
-              <h4 class="card-title">Consectetur adipiscing</h4>
-              <div class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-              labore et dolore magna aliqua.</div>
+              <h4 class="card-title">Rede Social</h4>
+              <div class="card-text">Essa rede social foi criada com o intuito de ganhar ainda mais conhecimento e para
+              fins de aprendizado!</div>
             </div>
           </div>
         </div>
@@ -66,14 +68,14 @@
       <div class="row">
         <div class="col-lg-7">
           <div class="image-container">
-            <img class="img-fluid" src="images/services-3.jpg" alt="alternative">
+            <img class="img-fluid" src="images/services-2.jpg">
           </div>
         </div>
         <div class="col-lg-5">
           <div class="text-container">
-            <h2>Consectetur adipiscing elit</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-              labore et dolore magna aliqua.</p>
+            <h2>Rede Social</h2>
+            <p>Essa rede social foi criada com o intuito de ganhar ainda mais conhecimento e para
+              fins de aprendizado!</p>
           </div>
         </div>
       </div>
@@ -84,7 +86,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <p class="p-small"> FakeTwitter.</p>
+          <p class="p-small">FakeTwitter.</p>
           <p class="p-small">Copyright © <a href="https://github.com/nicholastn1">Nicholas Timbo</a></p>
         </div>
       </div>
