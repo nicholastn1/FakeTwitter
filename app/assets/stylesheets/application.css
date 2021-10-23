@@ -12,7 +12,8 @@
  *
  *= require bootstrap/dist/css/bootstrap
  *= require bootstrap.min.css
- *= require fontawesome-all.min.css
+ *= require @fortawesome/fontawesome-free/css/fontawesome.min.css
+ *= require @fortawesome/fontawesome-free/css/fontawesome.css
  *= require swiper.css
  *= require styles.css
  */

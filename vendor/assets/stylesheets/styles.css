@@ -39,7 +39,7 @@ html {
 }
 
 body, p {
-	color: #53575a; 
+	color: #53575a;
 	font: 400 1rem/1.625rem "Open Sans", sans-serif;
 }
 
@@ -325,6 +325,17 @@ a:hover {
 .navbar .navbar-brand {
 	padding-top: 0.25rem;
 	padding-bottom: 0.25rem;
+}
+
+.navbar .user {
+	padding-top: 0.625rem;
+	padding-bottom: 0.625rem;
+	padding-right: 0.625rem;
+	color: #eeeeee;
+	font-weight: 600;
+	font-size: 0.875rem;
+	line-height: 0.875rem;
+	text-decoration: none;
 }
 
 .navbar .logo-image img {
