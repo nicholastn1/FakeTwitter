@@ -52,14 +52,11 @@
 
         <div class="col-lg-6">
           <div class="card">
-            <p class="notice"><%= notice %></p>
-            <p class="alert"><%= alert %></p>
-            <%= form_for("user", :url => user_posts_path) do |f| %>
+            <%= form_with(url: user_posts_path, local: true) do |f| %>
               <div class="card-body">
                 <label style="padding-bottom: 0.5rem;"> Post</label>
                 <%= f.text_area :post_text, rows: 5, class: "form-control", placeholder: "Faca seu post..." %>
               </div>
-
               <div style="padding-left: 1rem; padding-bottom: 1rem;">
                 <%= f.submit "Postar", class:"btn btn-primary" %>
               </div>
