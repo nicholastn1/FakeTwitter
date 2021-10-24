@@ -12,12 +12,14 @@
   <nav id="navbar" class="navbar navbar-expand-lg fixed-top navbar-dark" aria-label="Main navigation">
     <div class="container">
       <div class="navbar-nav ms-flex-align">
-        <%= link_to 'Home', root_path, class:"dropdown-item" %>
         <% unless user_signed_in? %>
-          <%= link_to 'Timelime', '#', class:"dropdown-item" %>
+          <%= link_to 'Timelime', root_path, class:"dropdown-item" %>
         <% else %>
-          <%= link_to 'Timelime', '#', class:"dropdown-item" %>
+          <%= link_to 'Timelime', root_path, class:"dropdown-item" %>
           <%= link_to 'Meu Perfil', user_profile_path, class:"dropdown-item" %>
+          <%= link_to 'Quem eu posso seguir', user_can_follow_path, class:"dropdown-item" %>
+          <%= link_to 'Seguindo', user_following_path, class:"dropdown-item" %>
+          <%= link_to 'Seguidores', user_followers_path, class:"dropdown-item" %>
         <% end %>
       </div>
       <ul class="navbar-nav ms-auto navbar-nav-scroll">
@@ -32,7 +34,7 @@
     </div>
   </nav>
 
-  <div class="basic-3">
+  <div class="basic-3" style="padding-top: 9rem; padding-bottom: 5rem;">
     <div class="container">
       <div class="row">
         <div class="col-lg-6">
@@ -40,11 +42,12 @@
             <p class="card-header" >
               <img class="img-fluid" src="https://mpng.subpng.com/20190221/gw/kisspng-computer-icons-user-profile-clip-art-portable-netw-c-svg-png-icon-free-download-389-86-onlineweb-5c6f7efd8fecb7.6156919015508108775895.jpg" alt="alternative" style="width: 50px; height: 50px;">
               <%= current_user.name %>
+              <div class="d-inline p-2 bg-light" style="margin-top: 1rem; margin-right: 1rem; margin-left: 1rem;">Seguidores: <span class="badge rounded-pill bg-dark" style="margin-right: 1rem;"><%= current_user.followers.count %> </span>Seguindo: <span class="badge rounded-pill bg-dark"><%= current_user.following.count %></span></div>
             </p>
             <div class="card-body" >
               Email:<p class="card-text text-muted"><%= current_user.email %></p>
               Phone:<p class="card-text text-muted">(88)98888-8888</p>
-              Birthday:<p class="card-text text-muted">06/10/2001</p>
+              Birthday:<p class="card-text text-muted">01/01/1999</p>
               Address:<p class="card-text text-muted">Rua A, 200</p>
             </div>
           </div>
@@ -62,9 +65,18 @@
               </div>
             <% end %>
           </div>
-          <%# <% current_user.posts.order(created_at: :desc).each do |post| %>
-            <%# <%= render "user/post_card", post: post %>
-          <%# <% end  %>
+          <br>
+          <p >Seus posts recentes:</p>
+          <% current_user.posts.order(created_at: :desc).each do |post| %>
+            <br>
+            <div class="card bg-light">
+              <div class="card-body">
+                <label class="font-monospace"><%= post.user.name %></label><br>
+                <small class="text-muted" style="font-size: 0.8rem;"><%= post.created_at.strftime("%d/%m/%Y %H:%M") %></small><br>
+                <div class="form-control bg-white"><%= post.post_text %></div>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>

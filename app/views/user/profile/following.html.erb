@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+  <nav id="navbar" class="navbar navbar-expand-lg fixed-top navbar-dark" aria-label="Main navigation">
+    <div class="container">
+      <div class="navbar-nav ms-flex-align">
+        <% unless user_signed_in? %>
+          <%= link_to 'Timelime', root_path, class:"dropdown-item" %>
+        <% else %>
+          <%= link_to 'Timelime', root_path, class:"dropdown-item" %>
+          <%= link_to 'Meu Perfil', user_profile_path, class:"dropdown-item" %>
+          <%= link_to 'Quem eu posso seguir', user_can_follow_path, class:"dropdown-item" %>
+        <% end %>
+      </div>
+      <ul class="navbar-nav ms-auto navbar-nav-scroll">
+        <% unless user_signed_in? %>
+          <%= link_to 'Logar', user_session_path, class:"dropdown-item" %>
+          <%= link_to 'Registrar', new_user_registration_path, class:"dropdown-item" %>
+        <% else %>
+          <div class="user"><%= current_user.name %></div>
+          <%= link_to 'Sair', destroy_user_session_path, class:"dropdown-item", method: :delete %>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="basic-3" style="padding-top: 9rem; padding-bottom: 5rem;">
+    <div class="container">
+      <div class="row">
+        <% @following.each do |user| %>
+          <br>
+          <div class="col-lg-6">
+            <div class="card">
+              <p class="card-header" >
+                <img class="img-fluid" src="https://mpng.subpng.com/20190221/gw/kisspng-computer-icons-user-profile-clip-art-portable-netw-c-svg-png-icon-free-download-389-86-onlineweb-5c6f7efd8fecb7.6156919015508108775895.jpg" alt="alternative" style="width: 50px; height: 50px;">
+                <%= user.name %>
+                <div class="d-inline p-2 bg-light" style="margin-top: 1rem; margin-right: 1rem; margin-left: 1rem;">Seguidores: <span class="badge rounded-pill bg-dark" style="margin-right: 1rem;"><%= user.followers.count %> </span>Seguindo: <span class="badge rounded-pill bg-dark"><%= user.following.count %></span></div>
+              </p>
+              <div class="card-body" >
+                Email:<p class="card-text text-muted"><%= user.email %></p>
+              <%= link_to 'Deixar de seguir', user_unfollow_path(user.id), class:"btn btn-danger", method: :post %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="copyright" style="padding-top: 3rem;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <p class="p-small">FakeTwitter.</p>
+          <p class="p-small">Copyright © <a href="https://github.com/nicholastn1">Nicholas Timbo</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

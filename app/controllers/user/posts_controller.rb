@@ -1,12 +1,12 @@
 class User::PostsController < ApplicationController
 
   def index
-    @post = Post.all
+    @post = Post.all.params([:id])
   end
 
   def create
-    @post = Post.new(post_params)
-
+    p_params = post_params.merge(user: current_user)
+    @post = Post.new(p_params)
     # respond_to do |format|
     if @post.save
       redirect_to user_profile_path
@@ -23,6 +23,6 @@ class User::PostsController < ApplicationController
   private
 
   def post_params
-    params.permit(:post_text)
+    params.permit(:post_text, :id)
   end
 end
