@@ -13,9 +13,9 @@
     <div class="container">
       <div class="navbar-nav ms-flex-align">
         <% unless user_signed_in? %>
-          <%= link_to 'FakeTwitter', '#', class:"dropdown-item" %>
+          <%= link_to 'Home', root_path, class:"dropdown-item" %>
         <% else %>
-          <%= link_to 'Timelime', '#', class:"dropdown-item" %>
+          <%= link_to 'Home', root_path, class:"dropdown-item" %>
           <%= link_to 'Meu Perfil', user_profile_path, class:"dropdown-item" %>
         <% end %>
       </div>
@@ -30,8 +30,6 @@
       </ul>
     </div>
   </nav>
-
-
 
   <div class="cards-1" style="padding-bottom: 0rem;">
     <div class="container">

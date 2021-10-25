@@ -15,7 +15,7 @@
         <% unless user_signed_in? %>
           <%= link_to 'Timelime', '#', class:"dropdown-item" %>
         <% else %>
-          <%= link_to 'Timelime', '#', class:"dropdown-item" %>
+          <%= link_to 'Home', root_path, class:"dropdown-item" %>
           <%= link_to 'Meu Perfil', user_profile_path, class:"dropdown-item" %>
           <%= link_to 'Seguindo', user_following_path, class:"dropdown-item" %>
         <% end %>
