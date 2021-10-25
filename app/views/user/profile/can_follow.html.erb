@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -36,8 +36,7 @@
     <div class="container">
       <div class="row">
         <% @can_follow.each do |user| %>
-          <br>
-          <div class="col-lg-6">
+          <div class="col-lg-6"><br>
             <div class="card">
               <p class="card-header" >
                 <img class="img-fluid" src="https://mpng.subpng.com/20190221/gw/kisspng-computer-icons-user-profile-clip-art-portable-netw-c-svg-png-icon-free-download-389-86-onlineweb-5c6f7efd8fecb7.6156919015508108775895.jpg" alt="alternative" style="width: 50px; height: 50px;">
@@ -49,9 +48,9 @@
                 <%= link_to 'Seguir', user_follow_path(user.id), class:"btn btn-success", method: :post %>
               </div>
             </div>
-          </div>
-        </div>
-      <% end %>
+          </div><br>
+        <% end %>
+      </div>
     </div>
   </div>
 

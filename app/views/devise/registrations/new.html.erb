@@ -1,34 +1,58 @@
-<h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-  </div>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autocomplete: "email" %>
-  </div>
+</head>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+<body class="text-center vsc-initialized">
+  <main class="form-signin" style="margin: 40%; margin-top: 3rem;">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <h1 class="h3 mb-3 fw-normal">Registrar</h1>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+      <div class="form-floating">
+        <%= f.text_field :name, autofocus: true, class:"form-control", placeholder:"name@example.com", class:"form-control", placeholder:"Nome" %>
+        <label for="floatingInput">Nome</label>
+      </div><br>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+      <div class="form-floating">
+        <%= f.email_field :email, class:"form-control", placeholder:"nome@exemplo.com" %>
+        <label for="floatingInput">Email</label>
+      </div><br>
 
-<%= render "devise/shared/links" %>
+      <div class="form-floating">
+        <%= f.password_field :password, class:"form-control", placeholder:"Senha" %>
+        <label for="floatingPassword">Senha
+          <% if @minimum_password_length %>
+            <em style="font-size: x-small;">(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+        </label>
+      </div><br>
+
+      <div class="form-floating">
+        <%= f.password_field :password_confirmation, class:"form-control", placeholder:"Senha" %>
+        <label for="floatingPassword">Confirmar Senha</label>
+      </div><br>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="checkbox mb-3">
+          <label>
+            <%= f.check_box :remember_me %> Lembrar-me
+          </label>
+        </div>
+      <% end %>
+      <div class="actions">
+        <%= f.submit "Registrar", class:"w-100 btn btn-lg btn-primary" %>
+      </div>
+      <%= render "devise/shared/links" %>
+      <p class="mt-5 mb-3 text-muted">&copy; 2021–2021</p>
+    <% end %>
+  </main>
+
+</body>
+</html>
