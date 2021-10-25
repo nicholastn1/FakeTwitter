@@ -4,7 +4,7 @@ Application developed as a test for a Jr. position.
 
 Things you may want to cover:
 
-* Ruby versionÇ 2.4.10
+* Ruby version: 2.4.10
 
 * System dependencies: Developed from a linux virtual machine (vagrant).
 
