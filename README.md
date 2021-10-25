@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Application developed as a test for a Jr. position.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby versionÇ 2.4.10
 
-* System dependencies
+* System dependencies: Developed from a linux virtual machine (vagrant).
 
-* Configuration
+* Database creation: PostgreSQL (rails db:create).
 
-* Database creation
+* Database initialization: rails db:migrate
 
-* Database initialization
+* How to run the test suite: Used RSpec for the tests.
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+*Thank you!*
